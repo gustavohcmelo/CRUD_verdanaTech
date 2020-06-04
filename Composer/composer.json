@@ -1,0 +1,21 @@
+{
+    "name": "gustavo.ghcmelo/crud_php",
+    "description": "Cadastro de Clientes e Produtos para o processo seletivo na VerdanaTech",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Gustavo Melo",
+            "email": "gustavo.ghcmelo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rain/raintpl": ">=3.0.0",
+        "slim/slim": "4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "vendor\\gustavo.ghcmelo\\php-classes\\src"
+        }
+    }
+}
