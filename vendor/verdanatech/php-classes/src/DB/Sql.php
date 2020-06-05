@@ -1,12 +1,12 @@
 <?php 
 
-namespace Hcode\DB;
+namespace Verdanatech\DB;
 
 class Sql {
 
 	const HOSTNAME = "127.0.0.1";
 	const USERNAME = "root";
-	const PASSWORD = "root";
+	const PASSWORD = "";
 	const DBNAME = "verdanatech";
 
 	private $conn;

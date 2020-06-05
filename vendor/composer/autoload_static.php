@@ -6,8 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit0ced26869f9f014340a71d30cc83c992
 {
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/gustavo.ghcmelo/php-classes/src',
+    public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Verdanatech\\' => 12,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Verdanatech\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/verdanatech/php-classes/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -30,7 +40,8 @@ class ComposerStaticInit0ced26869f9f014340a71d30cc83c992
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->fallbackDirsPsr4 = ComposerStaticInit0ced26869f9f014340a71d30cc83c992::$fallbackDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0ced26869f9f014340a71d30cc83c992::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0ced26869f9f014340a71d30cc83c992::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0ced26869f9f014340a71d30cc83c992::$prefixesPsr0;
 
         }, null, ClassLoader::class);
