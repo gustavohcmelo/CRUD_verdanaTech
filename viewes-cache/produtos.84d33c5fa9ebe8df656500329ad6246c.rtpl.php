@@ -3,43 +3,57 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<!-- OVERVIEW -->
-					<div class="panel panel-headline">
-						<div class="panel-heading">
-							<h3 class="panel-title">Cadastros</h3>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-                                <div class="panel">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Produtos</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <input type="text" class="form-control" placeholder="0000000" disabled style="width: 20%; display: inline; margin-bottom: 20px;">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Nome do Produto">
-                                        <br>
-                                        <input type="date" class="form-control" placeholder="Data de Compra" style="width: 49%; display: inline;">
-                                        <select class="form-control" style="width: 49%; display: inline; margin-bottom: 20px;">
-                                            <option value="cheese">Tipo de item</option>
-                                            <option value="tomatoes">Informática</option>
-                                            <option value="mozarella">Escritório</option>
-                                            <option value="mushrooms">Limpeza</option>
-                                        </select>
-                                        <br>
-                                        <input type="number" min="0.00" max="10000.00" class="form-control" placeholder="Preço de Compra R$0,00" style="width: 49%; display: inline;">
-                                        <input type="number" min="0.00" max="10000.00" class="form-control" placeholder="Preço de Venda R$0,00" style="width: 49%; display: inline; margin-bottom: 20px;">
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-6" style="width: 100%;">
-                                                <button type="button" class="btn btn-primary btn-block">Salvar</button>
-                                            </div>
-                                        </div>
-                                    </div>
+					<h3 class="page-title"></h3>
+					<div class="row">
+						<div class="col-md-12">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Buscar Produto">
+                                <span class="input-group-btn"><button class="btn btn-primary" type="button">Go!</button></span>
+                            </div>
+                            <br>
+							<!-- BASIC TABLE -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Produtos</h3>
                                 </div>
-							</div>
+								<div class="panel-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Código</th>
+												<th>Nome</th>
+												<th>Tipo</th>
+                                                <th>Preço de compra</th>
+												<th>Preço de venda</th>
+												<th>Data de Compra</th>
+												<th>Cliente</th>
+                                                <th>Edit</th>
+                                                <th>Remove</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
 
-						</div>
+											<tr>
+												<td><?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["name_product"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["type_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                                                <td>R$<?php echo htmlspecialchars( $value1["purchase_price"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td>R$<?php echo htmlspecialchars( $value1["cost_price"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["purchase_date"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["fantasy_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                                                <td><a href="/produtos/update/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><i class="lnr lnr-pencil"></a></td>
+                                                <td><a href="/produtos/delete/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><i class="lnr lnr-trash"></a></td>
+                                                
+											</tr>
+											<?php } ?>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+                            <!-- END BASIC TABLE -->
+                        </div>
 					</div>
 				</div>
 			</div>

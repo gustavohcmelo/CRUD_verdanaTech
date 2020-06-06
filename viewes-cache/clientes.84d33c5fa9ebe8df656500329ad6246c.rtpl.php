@@ -3,52 +3,66 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<!-- OVERVIEW -->
-					<div class="panel panel-headline">
-						<div class="panel-heading">
-							<h3 class="panel-title">Cadastros</h3>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-                                <div class="panel">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Clientes</h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <label class="fancy-radio">
-                                            <input name="gender" value="male" type="radio">
-                                            <span><i></i>Pessoa Física</span>
-                                        </label>
-                                        <label class="fancy-radio">
-                                            <input name="gender" value="female" type="radio">
-                                            <span><i></i>Pessoa Jurídica</span>
-                                        </label>
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="CPF ou CNPJ">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Nome (nome fantasia para pessoas jurídicas)">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Razão Social">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="CEP" style="width: 20%; display: inline;">
-                                        <input type="text" class="form-control" placeholder="Rua, Avenida, Logradouro" style="width: 60%; display: inline;">
-                                        <input type="text" class="form-control" placeholder="Numero" style="width: 15%; display: inline; margin-bottom: 20px;">
-                                        <br>
-                                        <input type="text" class="form-control" placeholder="Bairro" style="width: 25%; display: inline;">
-                                        <input type="text" class="form-control" placeholder="Cidade" style="width: 25%; display: inline;">
-                                        <input type="text" class="form-control" placeholder="UF" style="width: 25%; display: inline;">
-                                        <input type="text" class="form-control" placeholder="País" style="width: 20%; display: inline; margin-bottom: 20px;">
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-6" style="width: 100%;">
-                                                <button type="button" class="btn btn-primary btn-block">Salvar</button>
-                                            </div>
-                                        </div>
-                                    </div>
+					<h3 class="page-title"></h3>
+					<div class="row">
+						<div class="col-md-12">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Buscar Produto">
+                                <span class="input-group-btn"><button class="btn btn-primary" type="button">Go!</button></span>
+                            </div>
+                            <br>
+							<!-- BASIC TABLE -->
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Clientes</h3>
                                 </div>
-							</div>
+								<div class="panel-body">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Tipo</th>
+												<th>Registro</th>
+												<th>Nome</th>
+												<th>Razão Social</th>
+                                                <th>Endereço</th>
+                                                <th>Número</th>
+                                                <th>CEP</th>
+												<th>Cidade</th>
+												<th>Bairro</th>
+												<th>Estado</th>
+												<th>País</th>
+												<th>Editar</th>
+												<th>Excluir</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<?php $counter1=-1;  if( isset($clients) && ( is_array($clients) || $clients instanceof Traversable ) && sizeof($clients) ) foreach( $clients as $key1 => $value1 ){ $counter1++; ?>
 
-						</div>
+											<tr>
+												<td><?php if( $value1["type"] == 1 ){ ?>CNPJ<?php }else{ ?>CPF<?php } ?></td>
+												<td><?php echo htmlspecialchars( $value1["id_clients"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["fantasy_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["company_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                                                <td><?php echo htmlspecialchars( $value1["street"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["number"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["postal_code"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["city"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["neighborhood"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["state"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+												<td><?php echo htmlspecialchars( $value1["country"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
+                                                <td><a href="/clientes/update/<?php echo htmlspecialchars( $value1["id_clients"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><i class="lnr lnr-pencil"></a></td>
+                                                <td><a href="/produtos/delete/<?php echo htmlspecialchars( $value1["id_clients"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><i class="lnr lnr-trash"></a></td>
+                                                
+											</tr>
+											<?php } ?>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+                            <!-- END BASIC TABLE -->
+                        </div>
 					</div>
 				</div>
 			</div>

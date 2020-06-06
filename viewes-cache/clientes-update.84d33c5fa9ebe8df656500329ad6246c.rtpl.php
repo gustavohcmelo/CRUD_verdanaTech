@@ -6,13 +6,13 @@
 					<!-- OVERVIEW -->
 					<div class="panel panel-headline">
 						<div class="panel-heading">
-							<h3 class="panel-title">Relatórios</h3>
+							<h3 class="panel-title">Cadastros</h3>
 						</div>
 						<div class="panel-body">
 							<div class="row">
                                 <div class="panel">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Relatórios</h3>
+                                        <h3 class="panel-title">Clientes</h3>
                                     </div>
                                     <div class="panel-body">
                                         <label class="fancy-radio">

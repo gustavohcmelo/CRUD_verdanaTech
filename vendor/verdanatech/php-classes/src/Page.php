@@ -19,7 +19,7 @@ class Page {
         $config = array(
             "tpl_dir"       => $_SERVER["DOCUMENT_ROOT"] . "/viewes/",
             "cache_dir"     => $_SERVER["DOCUMENT_ROOT"] . "/viewes-cache/",
-            "debug"         => false, // set to false to improve the speed
+            "debug"         => false // set to false to improve the speed
         );
 
         Tpl::configure( $config );
@@ -35,7 +35,7 @@ class Page {
 
     public function setTpl($name, $data = array(), $returnHTML = false) {
 
-        foreach($this->options["data"] as $key => $values) {
+        foreach($data as $key => $value) {
             $this->tpl->assign($key, $value);
         }
 
